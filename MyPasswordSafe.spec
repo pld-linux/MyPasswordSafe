@@ -1,14 +1,13 @@
-# TODO:
-# - desktop
 Summary:	Password Safe - a password database utility
 Summary(pl):	Password Safe - narzêdzie do zarz±dzania baz± danych hase³
 Name:		MyPasswordSafe
 Version:	20041004
-Release:	0.9
+Release:	1
 License:	GPL v2
 Group:		Applications/Databases
 Source0:	http://www.semanticgap.com/myps/release/%{name}-%{version}.src.tgz
 # Source0-md5:	58bb98d3515a166a5988d3e8bf281268
+Source1:	%{name}.desktop
 URL:		http://www.semanticgap.com/myps/
 BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	qmake
@@ -56,10 +55,12 @@ mo¿liwo¶ci:
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/locale}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/locale,%{_desktopdir},%{_pixmapsdir}}
 
 install MyPasswordSafe $RPM_BUILD_ROOT%{_bindir}
 install locale/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/locale
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -73,3 +74,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/locale/mypasswordsafe_c.qm
 %lang(en) %{_datadir}/%{name}/locale/mypasswordsafe_en.qm
 %lang(fr) %{_datadir}/%{name}/locale/mypasswordsafe_fr.qm
+%{_desktopdir}/*.desktop
