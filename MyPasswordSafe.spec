@@ -49,16 +49,12 @@ mo¿liwo¶ci:
 
 %build
 cp -f /usr/share/automake/config.sub admin
-
 %{__make} \
 	QTDIR=/usr
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT%{_bindir}
-install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
-install -d $RPM_BUILD_ROOT%{_docdir}/%{name}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}}
 
 install MyPasswordSafe $RPM_BUILD_ROOT%{_bindir}
 install locale/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -68,9 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-attr(744,root,root) %{_bindir}/%{name}
+%doc doc/manual.html doc/sshots/*.jpg
+%attr(755,root,root) %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/mypasswordsafe_c.qm
 %lang(fr) %{_datadir}/%{name}/mypasswordsafe_fr.qm
 %lang(en) %{_datadir}/%{name}/mypasswordsafe_en.qm
-%doc doc/manual.html doc/sshots/*.jpg
