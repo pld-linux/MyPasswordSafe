@@ -50,6 +50,8 @@ mo¿liwo¶ci:
 %build
 cp -f /usr/share/automake/config.sub admin
 %{__make} \
+	CC=%{__cc} \
+	PREFIX=/usr \
 	QTDIR=/usr
 
 %install
