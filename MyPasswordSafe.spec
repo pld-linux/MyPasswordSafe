@@ -1,14 +1,18 @@
+# TODO:
+# - desktop
 Summary:	Password Safe - a password database utility
 Summary(pl):	Password Safe - narzêdzie do zarz±dzania baz± danych hase³
 Name:		MyPasswordSafe
 Version:	20041004
-Release:	0.5
+Release:	0.9
 License:	GPL v2
 Group:		Applications/Databases
 Source0:	http://www.semanticgap.com/myps/release/%{name}-%{version}.src.tgz
 # Source0-md5:	58bb98d3515a166a5988d3e8bf281268
 URL:		http://www.semanticgap.com/myps/
 BuildRequires:	kdelibs-devel >= 9:3.2.0
+BuildRequires:	qmake
+BuildRequires:	qt-linguist
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -45,7 +49,6 @@ mo¿liwo¶ci:
 %setup -q
 
 %build
-cp -f /usr/share/automake/config.sub admin
 %{__make} \
 	CC=%{__cc} \
 	PREFIX=/usr \
@@ -53,10 +56,10 @@ cp -f /usr/share/automake/config.sub admin
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/locale}
 
 install MyPasswordSafe $RPM_BUILD_ROOT%{_bindir}
-install locale/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}
+install locale/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/locale
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -66,6 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/manual.html doc/sshots/*.jpg
 %attr(755,root,root) %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
-%{_datadir}/%{name}/mypasswordsafe_c.qm
-%lang(en) %{_datadir}/%{name}/mypasswordsafe_en.qm
-%lang(fr) %{_datadir}/%{name}/mypasswordsafe_fr.qm
+%dir %{_datadir}/%{name}/locale
+%{_datadir}/%{name}/locale/mypasswordsafe_c.qm
+%lang(en) %{_datadir}/%{name}/locale/mypasswordsafe_en.qm
+%lang(fr) %{_datadir}/%{name}/locale/mypasswordsafe_fr.qm
