@@ -67,5 +67,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/mypasswordsafe_c.qm
-%lang(fr) %{_datadir}/%{name}/mypasswordsafe_fr.qm
 %lang(en) %{_datadir}/%{name}/mypasswordsafe_en.qm
+%lang(fr) %{_datadir}/%{name}/mypasswordsafe_fr.qm
