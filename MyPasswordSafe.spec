@@ -8,11 +8,8 @@ Group:		Applications/Databases
 Source0:	http://www.semanticgap.com/myps/release/%{name}-%{version}.src.tgz
 # Source0-md5:	58bb98d3515a166a5988d3e8bf281268
 URL:		http://www.semanticgap.com/myps/
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	rpmbuild(macros) >= 1.129
-BuildRequires:	unsermake >= 040805
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
