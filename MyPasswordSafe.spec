@@ -2,7 +2,7 @@ Summary:	Password Safe - a password database utility
 Summary(pl):	Password Safe - narzêdzie do zarz±dzania baz± danych hase³
 Name:		MyPasswordSafe
 Version:	20041004
-Release:	0.1
+Release:	0.5
 License:	GPL v2
 Group:		Applications/Databases
 Source0:	http://www.semanticgap.com/myps/release/%{name}-%{version}.src.tgz
@@ -51,18 +51,26 @@ mo¿liwo¶ci:
 cp -f /usr/share/automake/config.sub admin
 
 %{__make} \
-	PREFIX=/usr
+	QTDIR=/usr
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir} \
-	kde_libs_htmldir=%{_kdedocdir}
+install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
+install -d $RPM_BUILD_ROOT%{_docdir}/%{name}
+
+install MyPasswordSafe $RPM_BUILD_ROOT%{_bindir}
+install locale/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-#files
-#defattr(644,root,root,755)
+%files
+%defattr(644,root,root,755)
+attr(744,root,root) %{_bindir}/%{name}
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/mypasswordsafe_c.qm
+%lang(fr) %{_datadir}/%{name}/mypasswordsafe_fr.qm
+%lang(en) %{_datadir}/%{name}/mypasswordsafe_en.qm
+%doc doc/manual.html doc/sshots/*.jpg
