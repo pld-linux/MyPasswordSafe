@@ -49,7 +49,7 @@ mo¿liwo¶ci:
 
 %build
 %{__make} \
-	CC=%{__cc} \
+	CC="%{__cc}" \
 	PREFIX=/usr \
 	QTDIR=/usr
 
