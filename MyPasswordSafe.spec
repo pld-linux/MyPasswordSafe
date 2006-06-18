@@ -1,13 +1,14 @@
 Summary:	Password Safe - a password database utility
 Summary(pl):	Password Safe - narzêdzie do zarz±dzania baz± danych hase³
 Name:		MyPasswordSafe
-Version:	20050615
+Version:	20060326
 Release:	1
 License:	GPL v2
 Group:		Applications/Databases
 Source0:	http://www.semanticgap.com/myps/release/%{name}-%{version}.src.tgz
-# Source0-md5:	90106a0c0f07c6e028345357db566be6
+# Source0-md5:	5f93e1545819f75901eb7dc921089720
 Source1:	%{name}.desktop
+Patch0:		%{name}-includehint.patch
 URL:		http://www.semanticgap.com/myps/
 BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	qmake
@@ -46,6 +47,7 @@ mo¿liwo¶ci:
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} \
