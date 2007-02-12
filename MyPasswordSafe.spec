@@ -1,5 +1,5 @@
 Summary:	Password Safe - a password database utility
-Summary(pl):	Password Safe - narzêdzie do zarz±dzania baz± danych hase³
+Summary(pl.UTF-8):   Password Safe - narzÄ™dzie do zarzÄ…dzania bazÄ… danych haseÅ‚
 Name:		MyPasswordSafe
 Version:	20060326
 Release:	1
@@ -31,19 +31,19 @@ has the following features:
   MyPasswordSafe starts.
 - Supports Unicode in the safes.
 
-%description -l pl
-MyPasswordSafe to prosty, ³atwy w u¿yciu zarz±dca hase³ utrzymuj±cy
-kompatybilno¶æ z plikami Password Safe. MyPasswordSafe ma nastêpuj±ce
-mo¿liwo¶ci:
-- "Sejfy" z has³ami s± szyfrowane przy zapisie na dysk.
-- Hase³ nie trzeba nigdy widzieæ, poniewa¿ s± kopiowane do schowka.
-- Mog± byæ generowane has³a losowe.
-- Mo¿na zapamiêtaæ rozmiar i po³o¿enie okna oraz szeroko¶ci kolumn.
-- Has³a pozostaj± zaszyfrowane a¿ do chwili kiedy musz± byæ
-  odszyfrowane na poziomie okien dialogowych i plików.
-- "Sejf" mo¿e byæ uczyniony aktywnym, tak ¿e jest otwierany przy
+%description -l pl.UTF-8
+MyPasswordSafe to prosty, Å‚atwy w uÅ¼yciu zarzÄ…dca haseÅ‚ utrzymujÄ…cy
+kompatybilnoÅ›Ä‡ z plikami Password Safe. MyPasswordSafe ma nastÄ™pujÄ…ce
+moÅ¼liwoÅ›ci:
+- "Sejfy" z hasÅ‚ami sÄ… szyfrowane przy zapisie na dysk.
+- HaseÅ‚ nie trzeba nigdy widzieÄ‡, poniewaÅ¼ sÄ… kopiowane do schowka.
+- MogÄ… byÄ‡ generowane hasÅ‚a losowe.
+- MoÅ¼na zapamiÄ™taÄ‡ rozmiar i poÅ‚oÅ¼enie okna oraz szerokoÅ›ci kolumn.
+- HasÅ‚a pozostajÄ… zaszyfrowane aÅ¼ do chwili kiedy muszÄ… byÄ‡
+  odszyfrowane na poziomie okien dialogowych i plikÃ³w.
+- "Sejf" moÅ¼e byÄ‡ uczyniony aktywnym, tak Å¼e jest otwierany przy
   uruchomieniu MyPasswordSafe.
-- Obs³uguje Unikod w has³ach.
+- ObsÅ‚uguje Unikod w hasÅ‚ach.
 
 %prep
 %setup -q
