@@ -1,19 +1,20 @@
 Summary:	Password Safe - a password database utility
 Summary(pl.UTF-8):	Password Safe - narzędzie do zarządzania bazą danych haseł
 Name:		MyPasswordSafe
-Version:	20060326
+Version:	20061216
 Release:	1
 License:	GPL v2
 Group:		Applications/Databases
 Source0:	http://www.semanticgap.com/myps/release/%{name}-%{version}.src.tgz
-# Source0-md5:	5f93e1545819f75901eb7dc921089720
+# Source0-md5:	0fef98e77c8e593382fb201bd278cacf
 Source1:	%{name}.desktop
-Patch0:		%{name}-includehint.patch
 URL:		http://www.semanticgap.com/myps/
 BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	qmake
 BuildRequires:	qt-linguist
 BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	xorg-lib-libXScrnSaver-devel
+BuildRequires:	xorg-proto-scrnsaverproto-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -47,13 +48,12 @@ możliwości:
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__make} \
 	CC="%{__cc}" \
-	PREFIX=/usr \
-	QTDIR=/usr
+	PREFIX=%{_prefix} \
+	QTDIR=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
