@@ -2,7 +2,7 @@ Summary:	Password Safe - a password database utility
 Summary(pl.UTF-8):	Password Safe - narzędzie do zarządzania bazą danych haseł
 Name:		MyPasswordSafe
 Version:	20061216
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Databases
 Source0:	http://www.semanticgap.com/myps/release/%{name}-%{version}.src.tgz
