@@ -9,7 +9,7 @@ Source0:	http://www.semanticgap.com/myps/release/%{name}-%{version}.src.tgz
 # Source0-md5:	0fef98e77c8e593382fb201bd278cacf
 Source1:	%{name}.desktop
 URL:		http://www.semanticgap.com/myps/
-BuildRequires:	kdelibs-devel >= 9:3.2.0
+BuildRequires:	kde4-kde3libs-devel
 BuildRequires:	qmake
 BuildRequires:	qt-linguist
 BuildRequires:	rpmbuild(macros) >= 1.129
