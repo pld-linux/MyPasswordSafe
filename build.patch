@@ -1,0 +1,66 @@
+diff -ur MyPasswordSafe-20061216/src/crypto/bfproxy.cpp MyPasswordSafe-20061216-cxx/src/crypto/bfproxy.cpp
+--- MyPasswordSafe-20061216/src/crypto/bfproxy.cpp	2004-12-06 14:07:03.000000000 +0100
++++ MyPasswordSafe-20061216-cxx/src/crypto/bfproxy.cpp	2016-05-14 09:19:34.294304951 +0200
+@@ -16,6 +16,7 @@
+  * along with this program; if not, write to the Free Software
+  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  */
++#include <cstring>
+ #include "bfproxy.hpp"
+ 
+ BFProxy::BFProxy(const unsigned char *key, int len)
+diff -ur MyPasswordSafe-20061216/src/pwsafe/Util.cpp MyPasswordSafe-20061216-cxx/src/pwsafe/Util.cpp
+--- MyPasswordSafe-20061216/src/pwsafe/Util.cpp	2004-12-06 13:32:09.000000000 +0100
++++ MyPasswordSafe-20061216-cxx/src/pwsafe/Util.cpp	2016-05-14 09:19:04.093954707 +0200
+@@ -5,6 +5,7 @@
+ #include "PW_BlowFish.h"
+ //#include "PwsPlatform.h"
+ 
++#include <limits.h>
+ #include <stdio.h>
+ #include <iostream>
+ using std::cout;
+diff -ur MyPasswordSafe-20061216/src/pwsafe/Util.h MyPasswordSafe-20061216-cxx/src/pwsafe/Util.h
+--- MyPasswordSafe-20061216/src/pwsafe/Util.h	2004-11-01 22:54:35.000000000 +0100
++++ MyPasswordSafe-20061216-cxx/src/pwsafe/Util.h	2016-05-14 09:16:54.929114068 +0200
+@@ -10,6 +10,8 @@
+ #include <assert.h>
+ 
+ #include <string>
++#include <cstring>
++#include <cstdlib>
+ using std::string;
+ #include "PW_sha1.h"
+ #include "PwsPlatform.h"
+@@ -171,7 +173,7 @@
+ }
+ #endif
+ 
+-inline char * strFind( const char *str, const char *fstr )
++inline char * strFind( char *str, const char *fstr )
+ {
+ 	return strstr( str, fstr );
+ }
+diff -ur MyPasswordSafe-20061216/src/safe.hpp MyPasswordSafe-20061216-cxx/src/safe.hpp
+--- MyPasswordSafe-20061216/src/safe.hpp	2005-11-23 14:21:29.000000000 +0100
++++ MyPasswordSafe-20061216-cxx/src/safe.hpp	2016-05-13 07:43:12.482802320 +0200
+@@ -129,7 +129,7 @@
+   SafeEntry(SafeGroup *parent);
+   SafeEntry(SafeGroup *parent,
+ 	    const QString &n, const QString &u,
+-	    const EncryptedString &p, const QString &n);
++	    const EncryptedString &p, const QString &note);
+   SafeEntry(const SafeEntry &item);
+   ~SafeEntry();
+ 
+diff -ur MyPasswordSafe-20061216/src/safeserializer.cpp MyPasswordSafe-20061216-cxx/src/safeserializer.cpp
+--- MyPasswordSafe-20061216/src/safeserializer.cpp	2004-12-06 13:34:28.000000000 +0100
++++ MyPasswordSafe-20061216-cxx/src/safeserializer.cpp	2016-05-13 08:10:44.589090628 +0200
+@@ -16,6 +16,7 @@
+  * along with this program; if not, write to the Free Software
+  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  */
++#include <algorithm>
+ #include <qstring.h>
+ #include "safe.hpp"
+ #include "safeserializer.hpp"

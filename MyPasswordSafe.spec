@@ -8,6 +8,7 @@ Group:		Applications/Databases
 Source0:	http://www.semanticgap.com/myps/release/%{name}-%{version}.src.tgz
 # Source0-md5:	0fef98e77c8e593382fb201bd278cacf
 Source1:	%{name}.desktop
+Patch0:		build.patch
 URL:		http://www.semanticgap.com/myps/
 BuildRequires:	kde4-kde3support-devel
 BuildRequires:	qmake
@@ -48,6 +49,7 @@ możliwości:
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} \
